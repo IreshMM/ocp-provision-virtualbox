@@ -23,4 +23,4 @@ iso_path="$6"
 [[ ! -z "$iso_path" ]] && VBoxManage storageattach "$name" --storagectl SATA --port 1 --device 0 --medium "$iso_path" --type dvddrive
 
 network="$7"
-VBoxManage modifyvm "$name" --nic2 hostonly --hostonlyadapter2 "$network"
+VBoxManage modifyvm "$name" --nic1 hostonly --hostonlyadapter1 "$network"
