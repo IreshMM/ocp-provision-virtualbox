@@ -27,8 +27,9 @@ EOF
 generate_host_block() {
 
   MAC=`VBoxManage showvminfo "$1" --machinereadable \
-  			| grep macaddress2 \
-			| cut -d'"' -f2`
+  			| grep macaddress1 \
+			| cut -d'"' -f2 \
+  			| ./transformmac.py`
 
   cat >> dhcpd.conf <<-EOF
 host $1 {
